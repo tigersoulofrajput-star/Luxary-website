@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10251f">
+<title>MAISON VERDE — The Art of Fine Dining</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--green:#10251f;
+--green2:#19372e;
+--cream:#f5f0e6;
+--paper:#fbf9f4;
+--gold:#c6a66b;
+--ink:#18231e;
+--muted:#777d73;
+--line:rgba(24,35,30,.13);
+--serif:'Playfair Display',Georgia,serif;
+--sans:'DM Sans',Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+background:var(--paper);
+color:var(--ink);
+font-family:var(--sans)
+}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+
+.topbar{
+background:#0b1c17;
+color:#d9c9a6;
+text-align:center;
+padding:9px 16px;
+font-size:10px;
+letter-spacing:2.1px;
+text-transform:uppercase
+}
+
+.nav{
+height:82px;
+padding:0 6.5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:var(--paper);
+position:sticky;
+top:0;
+z-index:20;
+border-bottom:1px solid var(--line)
+}
+
+.brand{
+font:600 25px var(--serif);
+letter-spacing:4px;
+color:var(--green);
+text-decoration:none
+}
+
+.brand small{
+display:block;
+font:9px var(--sans);
+letter-spacing:4px;
+text-align:center;
+color:var(--gold);
+margin-top:2px
+}
+
+.navlinks{display:flex;gap:30px}
+
+.navlinks a{
+font-size:10px;
+letter-spacing:1.7px;
+text-transform:uppercase;
+text-decoration:none;
+color:var(--ink)
+}
+
+.navlinks a:hover{color:#a17d43}
+
+.navright{
+display:flex;
+gap:17px;
+align-items:center
+}
+
+.iconbtn{
+border:0;
+background:none;
+color:var(--green);
+font-size:19px;
+position:relative
+}
+
+.count{
+position:absolute;
+top:-7px;
+right:-9px;
+background:var(--gold);
+color:#14231d;
+border-radius:50%;
+font-size:9px;
+width:16px;
+height:16px;
+display:grid;
+place-items:center
+}
+
+.menu-toggle{display:none}
+
+.hero{
+min-height:690px;
+background:
+linear-gradient(90deg,rgba(7,23,18,.84) 0%,rgba(7,23,18,.52) 47%,rgba(7,23,18,.08) 100%),
+url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=90')
+center/cover;
+display:flex;
+align-items:center;
+padding:80px 9%;
+color:#fff;
+position:relative
+}
+
+.hero:after{
+content:"";
+position:absolute;
+inset:18px;
+border:1px solid rgba(226,202,157,.38);
+pointer-events:none
+}
+
+.hero-copy{
+max-width:650px;
+position:relative;
+z-index:1
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#ddc38e
+}
+
+.hero h1{
+font:500 clamp(50px,7vw,88px)/1.05 var(--serif);
+margin:22px 0
+}
+
+.hero h1 em{
+color:#d8bd86;
+font-weight:400
+}
+
+.hero p{
+max-width:460px;
+color:#e0e2dc;
+line-height:1.9;
+font-size:14px
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+padding:16px 24px;
+background:var(--gold);
+color:#10251f;
+text-decoration:none;
+border:1px solid var(--gold);
+font-size:10px;
+letter-spacing:2px;
+text-transform:uppercase;
+font-weight:700;
+transition:.25s
+}
+
+.btn:hover{
+background:transparent;
+color:var(--gold)
+}
+
+.btn-outline{
+background:transparent;
+color:#fff;
+border-color:rgba(255,255,255,.6);
+margin-left:10px
+}
+
+.btn-outline:hover{
+background:#fff;
+color:var(--green)
+}
+
+.hero-note{
+position:absolute;
+right:9%;
+bottom:54px;
+font:italic 16px var(--serif);
+color:#ead9b6;
+z-index:2
+}
+
+.intro{
+padding:105px 8%;
+display:grid;
+grid-template-columns:1fr 1.1fr;
+gap:9%;
+align-items:center
+}
+
+.intro-mark{
+font:italic 100px var(--serif);
+color:#e9e2d4;
+line-height:1
+}
+
+.section-kicker{
+color:#9b7945;
+font-size:10px;
+letter-spacing:3px;
+text-transform:uppercase
+}
+
+.intro h2,.section-head h2,.story h2{
+font:500 clamp(34px,4vw,52px)/1.15 var(--serif);
+color:var(--green);
+margin:15px 0 20px
+}
+
+.intro p,.story p{
+color:var(--muted);
+font-size:13px;
+line-height:2
+}
+
+.signature{
+font:italic 23px var(--serif);
+color:#9b7945;
+margin-top:25px
+}
+
+.menu-section{
+background:var(--cream);
+padding:95px 7% 110px
+}
+
+.section-head{
+text-align:center;
+max-width:650px;
+margin:0 auto 42px
+}
+
+.section-head p{
+font-size:13px;
+line-height:1.8;
+color:var(--muted)
+}
+
+.filters{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin:35px 0
+}
+
+.filter{
+border:1px solid #cfc6b4;
+background:transparent;
+color:#586158;
+padding:10px 18px;
+font-size:9px;
+letter-spacing:1.5px;
+text-transform:uppercase
+}
+
+.filter.active,.filter:hover{
+background:var(--green);
+color:#fff;
+border-color:var(--green)
+}
+
+.tools{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin:25px 0
+}
+
+.search{
+border:1px solid #d5cebf;
+background:#fff;
+padding:12px 15px;
+min-width:240px;
+outline:none;
+font-size:12px
+}
+
+.search:focus{border-color:var(--gold)}
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px
+}
+
+.dish{
+background:var(--paper);
+border:1px solid rgba(24,35,30,.08);
+transition:transform .3s,box-shadow .3s;
+overflow:hidden
+}
+
+.dish:hover{
+transform:translateY(-6px);
+box-shadow:0 18px 35px rgba(25,35,29,.1)
+}
+
+.dish-img{
+height:235px;
+position:relative;
+overflow:hidden
+}
+
+.dish-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform .6s
+}
+
+.dish:hover .dish-img img{transform:scale(1.06)}
+
+.tag{
+position:absolute;
+top:15px;
+left:15px;
+background:var(--gold);
+color:#15251e;
+padding:7px 10px;
+font-size:8px;
+letter-spacing:1.5px;
+text-transform:uppercase
+}
+
+.dish-body{padding:22px}
+
+.dish-top{
+display:flex;
+justify-content:space-between;
+gap:12px;
+align-items:start
+}
+
+.dish h3{
+font:500 22px var(--serif);
+margin:0;
+color:var(--green)
+}
+
+.price{
+color:#9b7945;
+font:600 16px var(--serif);
+white-space:nowrap
+}
+
+.dish p{
+font-size:11px;
+line-height:1.7;
+color:var(--muted);
+min-height:38px
+}
+
+.dish-foot{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:18px
+}
+
+.dish-foot span{
+font-size:9px;
+color:#8b8f86;
+letter-spacing:1px;
+text-transform:uppercase
+}
+
+.add{
+border:1px solid var(--green);
+background:var(--green);
+color:#fff;
+padding:10px 14px;
+font-size:9px;
+letter-spacing:1.4px;
+text-transform:uppercase
+}
+
+.add:hover{
+background:var(--gold);
+border-color:var(--gold);
+color:var(--green)
+}
+
+.story{
+display:grid;
+grid-template-columns:1fr 1fr;
+min-height:560px;
+background:var(--green);
+color:#fff
+}
+
+.story-image{
+min-height:460px;
+background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85') center/cover
+}
+
+.story-copy{
+padding:90px 12%;
+align-self:center
+}
+
+.story h2{color:#f5f0e6}
+.story p{color:#c5cec6}
+.story .btn{margin-top:18px}
+
+.experience{
+padding:90px 8%;
+text-align:center
+}
+
+.experience-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+margin-top:55px
+}
+
+.experience-item{padding:20px}
+
+.experience-item b{
+font:italic 42px var(--serif);
+color:var(--gold)
+}
+
+.experience-item h3{
+font:500 21px var(--serif);
+color:var(--green)
+}
+
+.experience-item p{
+font-size:12px;
+line-height:1.8;
+color:var(--muted)
+}
+
+.reservation{
+background:#eae3d5;
+padding:85px 8%;
+display:grid;
+grid-template-columns:.8fr 1.2fr;
+gap:8%;
+align-items:center
+}
+
+.reservation h2{
+font:500 48px var(--serif);
+color:var(--green);
+margin:12px 0
+}
+
+.reservation p{
+font-size:13px;
+line-height:1.9;
+color:#697269
+}
+
+.reserve-form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:13px
+}
+
+.reserve-form input,
+.reserve-form select,
+.reserve-form textarea,
+.checkout-form input,
+.checkout-form textarea{
+width:100%;
+padding:14px;
+border:1px solid #d0c7b7;
+background:#fbf9f4;
+outline:none;
+font-size:12px
+}
+
+.reserve-form textarea{
+grid-column:1/-1;
+min-height:80px
+}
+
+.reserve-form button{grid-column:1/-1}
+
+.footer{
+background:#0b1c17;
+color:#c6cfc7;
+padding:65px 8% 25px
+}
+
+.footer-top{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:50px;
+padding-bottom:45px
+}
+
+.footer .brand{color:#f6f0e4}
+
+.footer p,.footer a{
+font-size:11px;
+line-height:2;
+color:#aab6ac
+}
+
+.footer a{
+display:block;
+text-decoration:none
+}
+
+.footer h4{
+font:500 18px var(--serif);
+color:#e8d6b0
+}
+
+.copyright{
+border-top:1px solid #31443a;
+padding-top:20px;
+display:flex;
+justify-content:space-between;
+font-size:9px;
+letter-spacing:1px;
+color:#839187
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(3,12,9,.58);
+z-index:40;
+opacity:0;
+visibility:hidden;
+transition:.25s
+}
+
+.overlay.show{
+opacity:1;
+visibility:visible
+}
+
+.cart-panel{
+position:fixed;
+z-index:41;
+right:-460px;
+top:0;
+height:100%;
+width:min(430px,100%);
+background:var(--paper);
+padding:28px;
+transition:right .35s;
+display:flex;
+flex-direction:column
+}
+
+.cart-panel.open{right:0}
+
+.cart-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--line);
+padding-bottom:18px
+}
+
+.cart-head h2{
+font:500 28px var(--serif);
+color:var(--green);
+margin:0
+}
+
+.close{
+border:0;
+background:none;
+font-size:25px;
+color:var(--green)
+}
+
+.cart-items{
+overflow:auto;
+flex:1;
+padding:15px 0
+}
+
+.cart-row{
+display:grid;
+grid-template-columns:65px 1fr auto;
+gap:12px;
+padding:13px 0;
+border-bottom:1px solid var(--line);
+align-items:center
+}
+
+.cart-row img{
+width:65px;
+height:65px;
+object-fit:cover
+}
+
+.cart-row h4{
+font:500 16px var(--serif);
+margin:0 0 5px
+}
+
+.cart-row small{color:var(--muted)}
+
+.qty{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:8px
+}
+
+.qty button{
+width:23px;
+height:23px;
+border:1px solid var(--line);
+background:white
+}
+
+.cart-summary{
+border-top:1px solid var(--line);
+padding-top:18px
+}
+
+.sumline{
+display:flex;
+justify-content:space-between;
+font-size:12px;
+margin:10px 0;
+color:#687169
+}
+
+.sumline.total{
+font-size:17px;
+font-weight:700;
+color:var(--green)
+}
+
+.checkout-btn{
+width:100%;
+margin-top:12px
+}
+
+.empty{
+text-align:center;
+color:var(--muted);
+padding:55px 10px;
+font:italic 18px var(--serif)
+}
+
+.modal{
+position:fixed;
+z-index:50;
+inset:0;
+display:none;
+place-items:center;
+padding:18px;
+background:rgba(3,12,9,.68)
+}
+
+.modal.show{display:grid}
+
+.modal-card{
+background:var(--paper);
+width:min(560px,100%);
+padding:30px;
+max-height:90vh;
+overflow:auto
+}
+
+.modal-head{
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.modal h2{
+font:500 30px var(--serif);
+color:var(--green)
+}
+
+.checkout-form{display:grid;gap:12px}
+.checkout-form textarea{min-height:75px}
+
+.notice{
+font-size:10px;
+line-height:1.6;
+color:#777;
+margin:4px 0
+}
+
+.toast{
+position:fixed;
+bottom:24px;
+left:50%;
+transform:translate(-50%,20px);
+background:var(--green);
+color:#fff;
+padding:13px 20px;
+font-size:11px;
+letter-spacing:.5px;
+opacity:0;
+pointer-events:none;
+transition:.25s;
+z-index:60
+}
+
+.toast.show{
+opacity:1;
+transform:translate(-50%,0)
+}
+
+@media(max-width:900px){
+.nav{padding:0 5%}
+.navlinks{gap:15px}
+.hero{min-height:600px}
+.menu-grid{grid-template-columns:repeat(2,1fr)}
+.intro{gap:4%;padding:75px 6%}
+.reservation{gap:4%}
+}
+
+@media(max-width:650px){
+.topbar{font-size:8px;letter-spacing:1.3px}
+.nav{height:70px}
+.brand{font-size:20px}
+.navlinks{
+display:none;
+position:absolute;
+top:70px;
+left:0;
+right:0;
+background:var(--paper);
+padding:22px;
+flex-direction:column;
+border-bottom:1px solid var(--line)
+}
+.navlinks.show{display:flex}
+.menu-toggle{display:inline-block}
+.hero{
+min-height:610px;
+padding:70px 8%;
+background-position:58% center
+}
+.hero:after{inset:10px}
+.hero h1{font-size:55px}
+.hero-note{
+right:10%;
+bottom:28px;
+font-size:13px
+}
+.intro{
+grid-template-columns:1fr;
+padding:65px 8%;
+gap:20px
+}
+.intro-mark{font-size:65px}
+.menu-section{padding:70px 6%}
+.menu-grid{grid-template-columns:1fr;gap:18px}
+.dish-img{height:250px}
+.tools{
+align-items:stretch;
+flex-direction:column
+}
+.search{width:100%}
+.story{grid-template-columns:1fr}
+.story-image{min-height:300px}
+.story-copy{padding:65px 8%}
+.experience{padding:65px 7%}
+.experience-grid{
+grid-template-columns:1fr;
+gap:5px;
+margin-top:25px
+}
+.reservation{
+grid-template-columns:1fr;
+padding:65px 7%;
+gap:25px
+}
+.reservation h2{font-size:40px}
+.reserve-form{grid-template-columns:1fr}
+.reserve-form textarea,.reserve-form button{grid-column:auto}
+.footer-top{
+grid-template-columns:1fr;
+gap:25px
+}
+.copyright{
+gap:10px;
+flex-direction:column
+}
+.btn-outline{margin:12px 0 0}
+.hero .btn{
+display:flex;
+width:max-content
+}
+.hero .btn-outline{display:flex}
+.cart-panel{padding:22px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+An invitation to savour the extraordinary • Open daily, 12 PM – 11 PM
+</div>
+
+<header class="nav">
+
+<a class="brand" href="#">
+MAISON VERDE
+<small>THE GRAND TABLE</small>
+</a>
+
+<nav class="navlinks" id="navlinks">
+<a href="#story">Our philosophy</a>
+<a href="#menu">The menu</a>
+<a href="#experience">Experience</a>
+<a href="#reservation">Reservations</a>
+</nav>
+
+<div class="navright">
+<button class="iconbtn" id="cartOpen" aria-label="Open cart">
+♧<span class="count" id="cartCount">0</span>
+</button>
+<button class="iconbtn menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+</div>
+
+</header>
+
+<main>
+
+<section class="hero">
+<div class="hero-copy">
+
+<div class="eyebrow">A new expression of Indian fine dining</div>
+
+<h1>Where flavour<br>becomes <em>art.</em></h1>
+
+<p>
+An intimate celebration of thoughtful ingredients,
+soulful Indian recipes and the quiet luxury of an
+unforgettable table.
+</p>
+
+<a class="btn" href="#menu">Explore the menu <span>↗</span></a>
+
+<a class="btn btn-outline" href="#reservation">Reserve a table</a>
+
+</div>
+
+<div class="hero-note">
+An experience worth slowing down for.
+</div>
+</section>
+
+
+<section class="intro">
+
+<div>
+<div class="intro-mark">“</div>
+<div class="section-kicker">The Maison Verde story</div>
+<h2>Rooted in heritage.<br>Made for discovery.</h2>
+</div>
+
+<div>
+<p>
+We believe a remarkable meal is more than what arrives
+on the plate. It is the warmth of the welcome, the beauty
+of a carefully set table and the memory that stays long
+after the final course.
+</p>
+
+<p>
+Our kitchen brings India's rich culinary heritage into
+conversation with modern technique — creating dishes
+that feel both familiar and wonderfully new.
+</p>
+
+<div class="signature">
+The art of gathering, reimagined.
+</div>
+</div>
+
+</section>
+
+
+<section class="menu-section" id="menu">
+
+<div class="section-head">
+<div class="section-kicker">Curated by our chef</div>
+<h2>The signature menu</h2>
+<p>
+Seasonal ingredients, layered spices and a little theatre.
+Discover the dishes our guests return for.
+</p>
+</div>
+
+<div class="filters">
+<button class="filter active" data-category="all">All creations</button>
+<button class="filter" data-category="starters">Small plates</button>
+<button class="filter" data-category="mains">Main course</button>
+<button class="filter" data-category="desserts">Desserts</button>
+<button class="filter" data-category="drinks">Drinks</button>
+</div>
+
+<div class="tools">
+<span class="section-kicker">A menu with a point of view</span>
+<input class="search" id="search" placeholder="Search the menu…">
+</div>
+
+<div class="menu-grid" id="menuGrid"></div>
+
+</section>
+
+
+<section class="story" id="story">
+
+<div class="story-image"></div>
+
+<div class="story-copy">
+<div class="section-kicker">Beyond the plate</div>
+
+<h2>A little ceremony.<br>A lasting memory.</h2>
+
+<p>
+From the first pour to the last course, every detail
+is considered. Our dining room is designed for long
+conversations, special milestones and evenings that
+deserve to be celebrated.
+</p>
+
+<a class="btn" href="#reservation">Discover the experience ↗</a>
+</div>
+
+</section>
+
+
+<section class="experience" id="experience">
+
+<div class="section-kicker">The Maison Verde difference</div>
+
+<h2 class="section-head" style="margin:12px auto 0">
+More than dinner. A destination.
+</h2>
+
+<div class="experience-grid">
+
+<div class="experience-item">
+<b>01</b>
+<h3>Ingredient-led cooking</h3>
+<p>
+Beautiful produce, considered sourcing and flavours
+that speak for themselves.
+</p>
+</div>
+
+<div class="experience-item">
+<b>02</b>
+<h3>Thoughtful hospitality</h3>
+<p>
+Attentive service that feels effortless, warm and personal.
+</p>
+</div>
+
+<div class="experience-item">
+<b>03</b>
+<h3>Moments worth keeping</h3>
+<p>
+An atmosphere made for celebrations, intimate dinners
+and new traditions.
+</p>
+</div>
+
+</div>
+</section>
+
+
+<section class="reservation" id="reservation">
+
+<div>
+<div class="section-kicker">Your table is waiting</div>
+<h2>Make an evening of it.</h2>
+<p>
+Tell us when you would like to visit. This demo form
+will show your reservation request on screen; it does
+not send it to a real restaurant.
+</p>
+</div>
+
+<form class="reserve-form" id="reserveForm">
+
+<input required placeholder="Your name">
+
+<input required type="tel"
+pattern="[0-9]{10}" maxlength="10"
+placeholder="10-digit phone number">
+
+<input required type="date" id="reserveDate">
+
+<select required>
+<option value="">Guests</option>
+<option>1 guest</option>
+<option>2 guests</option>
+<option>3 guests</option>
+<option>4 guests</option>
+<option>5 guests</option>
+<option>6 guests</option>
+<option>7+ guests</option>
+</select>
+
+<select required>
+<option value="">Preferred time</option>
+<option>12:00 PM</option>
+<option>1:00 PM</option>
+<option>2:00 PM</option>
+<option>7:00 PM</option>
+<option>8:00 PM</option>
+<option>9:00 PM</option>
+</select>
+
+<textarea placeholder="Occasion or special request (optional)"></textarea>
+
+<button class="btn" type="submit">
+Request a reservation ↗
+</button>
+
+</form>
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+<div class="footer-top">
+
+<div>
+<a class="brand" href="#">
+MAISON VERDE
+<small>THE GRAND TABLE</small>
+</a>
+
+<p>
+Fine dining, generous spirit.<br>
+A place to gather, savour and stay awhile.
+</p>
+</div>
+
+<div>
+<h4>Explore</h4>
+<a href="#story">Our philosophy</a>
+<a href="#menu">The menu</a>
+<a href="#experience">The experience</a>
+</div>
+
+<div>
+<h4>Visit us</h4>
+<p>
+12 Garden Avenue<br>
+Your City, India<br>
++91 98765 43210<br>
+hello@maisonverde.example
+</p>
+</div>
+
+</div>
+
+<div class="copyright">
+<span>© 2026 MAISON VERDE. CONCEPT WEBSITE.</span>
+<span>MADE FOR MEMORABLE MOMENTS.</span>
+</div>
+
+</footer>
+
+
+<div class="overlay" id="overlay"></div>
+
+
+<aside class="cart-panel" id="cartPanel">
+
+<div class="cart-head">
+<h2>Your selection</h2>
+<button class="close" id="cartClose">×</button>
+</div>
+
+<div class="cart-items" id="cartItems"></div>
+
+<div class="cart-summary">
+
+<div class="sumline">
+<span>Subtotal</span>
+<b id="subtotal">₹0</b>
+</div>
+
+<div class="sumline">
+<span>Service &amp; taxes (5% estimate)</span>
+<b id="tax">₹0</b>
+</div>
+
+<div class="sumline total">
+<span>Total</span>
+<b id="total">₹0</b>
+</div>
+
+<button class="btn checkout-btn" id="checkoutBtn">
+Continue to checkout →
+</button>
+
+<p class="notice">
+Demo checkout only. No payment is collected and no
+order is sent to a restaurant.
+</p>
+
+</div>
+</aside>
+
+
+<div class="modal" id="checkoutModal">
+
+<div class="modal-card">
+
+<div class="modal-head">
+<h2>Complete your order</h2>
+<button class="close" id="modalClose">×</button>
+</div>
+
+<form class="checkout-form" id="checkoutForm">
+
+<input required placeholder="Full name">
+
+<input required type="tel"
+pattern="[0-9]{10}" maxlength="10"
+placeholder="10-digit mobile number">
+
+<textarea required placeholder="Delivery address"></textarea>
+
+<textarea placeholder="Notes for the kitchen (optional)"></textarea>
+
+<p class="notice">
+This is a portfolio demonstration. It will display
+a sample order confirmation only; no real order or
+payment will be processed.
+</p>
+
+<button class="btn" type="submit">
+Place demo order ↗
+</button>
+
+</form>
+</div>
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+const dishes=[
+
+{
+id:1,
+name:"Saffron Malai Tikka",
+category:"starters",
+price:425,
+tag:"Chef's favourite",
+desc:"Tender cottage cheese, saffron cream, charred edges.",
+img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:2,
+name:"Royal Dahi Kebab",
+category:"starters",
+price:365,
+tag:"Signature",
+desc:"Silken hung curd, toasted nuts and gentle spices.",
+img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:3,
+name:"Truffle Mushroom Galouti",
+category:"starters",
+price:445,
+tag:"Limited",
+desc:"Melt-in-the-mouth mushroom kebab with aromatic herbs.",
+img:"https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:4,
+name:"Dum Pukht Biryani",
+category:"mains",
+price:595,
+tag:"House classic",
+desc:"Slow-cooked basmati, garden vegetables and whole spices.",
+img:"https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:5,
+name:"Paneer Khurchan Royale",
+category:"mains",
+price:545,
+tag:"Bestseller",
+desc:"Soft paneer, peppers and a rich tomato-cashew masala.",
+img:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:6,
+name:"Dal Maison Verde",
+category:"mains",
+price:425,
+tag:"Slow cooked",
+desc:"Black lentils simmered overnight, finished with cultured butter.",
+img:"https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:7,
+name:"Rose & Pistachio Kulfi",
+category:"desserts",
+price:245,
+tag:"Sweet finish",
+desc:"Traditional slow-set kulfi with rose and crushed pistachio.",
+img:"https://images.unsplash.com/photo-1488900128323-21503983a07e?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:8,
+name:"Warm Gulab Jamun",
+category:"desserts",
+price:225,
+tag:"Classic",
+desc:"Soft khoya dumplings, fragrant syrup and vanilla cream.",
+img:"https://images.unsplash.com/photo-1666190092159-3b5a5f7f3c9d?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:9,
+name:"Dark Chocolate Delice",
+category:"desserts",
+price:295,
+tag:"Indulgent",
+desc:"Silky dark chocolate, crisp praline and seasonal berries.",
+img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:10,
+name:"Kesar Badam Thandai",
+category:"drinks",
+price:195,
+tag:"House pour",
+desc:"Chilled almond milk, saffron, rose and warming spice.",
+img:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:11,
+name:"Cucumber Mint Cooler",
+category:"drinks",
+price:175,
+tag:"Refreshing",
+desc:"Fresh cucumber, garden mint, lime and sparkling water.",
+img:"https://images.unsplash.com/photo-1513558161293-caae741d4b4b?auto=format&fit=crop&w=900&q=85"
+},
+
+{
+id:12,
+name:"Mango Saffron Fizz",
+category:"drinks",
+price:215,
+tag:"Seasonal",
+desc:"Alphonso mango, saffron syrup and a bright citrus finish.",
+img:"https://images.unsplash.com/photo-1513558161293-caae741d4b4b?auto=format&fit=crop&w=900&q=85"
+}
+
+];
+
+let cart={};
+let activeCategory="all";
+
+const money=n=>"₹"+n.toLocaleString("en-IN");
+
+const grid=document.getElementById("menuGrid");
+
+
+function renderMenu(){
+
+const q=document.getElementById("search").value.toLowerCase();
+
+const list=dishes.filter(d=>
+(activeCategory==="all"||d.category===activeCategory)&&
+(d.name.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q))
+);
+
+grid.innerHTML=list.length
+?list.map(d=>`
+
+<article class="dish">
+
+<div class="dish-img">
+<img src="${d.img}" alt="${d.name}" loading="lazy">
+<span class="tag">${d.tag}</span>
+</div>
+
+<div class="dish-body">
+
+<div class="dish-top">
+<h3>${d.name}</h3>
+<span class="price">${money(d.price)}</span>
+</div>
+
+<p>${d.desc}</p>
+
+<div class="dish-foot">
+<span>${d.category}</span>
+<button class="add" onclick="addToCart(${d.id})">
+＋ Add to selection
+</button>
+</div>
+
+</div>
+</article>
+
+`).join("")
+:'<p class="empty">No dishes found. Try another search.</p>';
+
+}
+
+
+function addToCart(id){
+
+cart[id]=(cart[id]||0)+1;
+updateCart();
+showToast("Added to your selection");
+
+}
+
+
+function changeQty(id,delta){
+
+cart[id]=(cart[id]||0)+delta;
+
+if(cart[id]<=0){
+delete cart[id];
+}
+
+updateCart();
+
+}
+
+
+function updateCart(){
+
+const count=Object.values(cart).reduce((a,b)=>a+b,0);
+
+const sub=dishes.reduce(
+(s,d)=>s+d.price*(cart[d.id]||0),0
+);
+
+const tax=Math.round(sub*.05);
+
+document.getElementById("cartCount").textContent=count;
+document.getElementById("subtotal").textContent=money(sub);
+document.getElementById("tax").textContent=money(tax);
+document.getElementById("total").textContent=money(sub+tax);
+
+const rows=Object.entries(cart);
+
+document.getElementById("cartItems").innerHTML=rows.length
+?rows.map(([id,qty])=>{
+
+const d=dishes.find(x=>x.id==id);
+
+return `
+
+<div class="cart-row">
+
+<img src="${d.img}" alt="">
+
+<div>
+<h4>${d.name}</h4>
+<small>${money(d.price)} each</small>
+
+<div class="qty">
+<button onclick="changeQty(${id},-1)">−</button>
+<span>${qty}</span>
+<button onclick="changeQty(${id},1)">＋</button>
+</div>
+
+</div>
+
+<b>${money(d.price*qty)}</b>
+
+</div>
+
+`;
+
+}).join("")
+:'<div class="empty">Your table is waiting.<br>Add something delicious.</div>';
+
+}
+
+
+function openCart(){
+
+document.getElementById("cartPanel").classList.add("open");
+document.getElementById("overlay").classList.add("show");
+
+}
+
+
+function closeCart(){
+
+document.getElementById("cartPanel").classList.remove("open");
+document.getElementById("overlay").classList.remove("show");
+
+}
+
+
+function showToast(msg){
+
+const t=document.getElementById("toast");
+
+t.textContent=msg;
+t.classList.add("show");
+
+setTimeout(()=>{
+t.classList.remove("show");
+},2200);
+
+}
+
+
+document.querySelectorAll(".filter").forEach(b=>{
+
+b.addEventListener("click",()=>{
+
+document.querySelectorAll(".filter").forEach(x=>
+x.classList.remove("active")
+);
+
+b.classList.add("active");
+
+activeCategory=b.dataset.category;
+
+renderMenu();
+
+});
+
+});
+
+
+document.getElementById("search").addEventListener("input",renderMenu);
+
+document.getElementById("cartOpen").onclick=openCart;
+document.getElementById("cartClose").onclick=closeCart;
+document.getElementById("overlay").onclick=closeCart;
+
+
+document.getElementById("checkoutBtn").onclick=()=>{
+
+if(!Object.keys(cart).length){
+showToast("Your selection is empty");
+return;
+}
+
+document.getElementById("checkoutModal").classList.add("show");
+
+};
+
+
+document.getElementById("modalClose").onclick=()=>{
+
+document.getElementById("checkoutModal").classList.remove("show");
+
+};
+
+
+document.getElementById("checkoutForm").addEventListener("submit",e=>{
+
+e.preventDefault();
+
+const total=document.getElementById("total").textContent;
+
+alert(
+"Thank you! Your demo order has been created. Estimated total: "+
+total+
+". This is not a real order."
+);
+
+cart={};
+updateCart();
+
+document.getElementById("checkoutModal").classList.remove("show");
+
+closeCart();
+
+e.target.reset();
+
+});
+
+
+document.getElementById("reserveDate").min=
+new Date().toISOString().split("T")[0];
+
+
+document.getElementById("reserveForm").addEventListener("submit",e=>{
+
+e.preventDefault();
+
+alert(
+"Thank you! Your sample reservation request is ready. "+
+"This demo does not send it to a restaurant."
+);
+
+e.target.reset();
+
+});
+
+
+document.getElementById("menuToggle").onclick=()=>{
+
+document.getElementById("navlinks").classList.toggle("show");
+
+};
+
+
+document.querySelectorAll(".navlinks a").forEach(a=>{
+
+a.addEventListener("click",()=>{
+
+document.getElementById("navlinks").classList.remove("show");
+
+});
+
+});
+
+
+renderMenu();
+updateCart();
+
+</script>
+
+</body>
+</html>
