@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17130f">
+<title>Taj Thali | The Art of Indian Dining</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--ink:#17130f;
+--cream:#f5f0e7;
+--paper:#fffdf8;
+--gold:#c6a56b;
+--muted:#82796c;
+--line:#e6ddcf;
+--green:#344b3c;
+}
+
+* {
+box-sizing:border-box;
+}
+
+html {
+scroll-behavior:smooth;
+}
+
+body {
+margin:0;
+background:var(--cream);
+color:var(--ink);
+font-family:"DM Sans",sans-serif;
+}
+
+button,a {
+font:inherit;
+}
+
+a {
+color:inherit;
+text-decoration:none;
+}
+
+.topline {
+background:#211b15;
+color:#e8d8b8;
+text-align:center;
+padding:9px 12px;
+font-size:10px;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.nav {
+height:82px;
+padding:0 6vw;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:var(--paper);
+border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:10;
+}
+
+.brand {
+font-family:"Cormorant Garamond",serif;
+font-size:34px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+.brand small {
+display:block;
+font:9px "DM Sans";
+letter-spacing:4px;
+text-align:center;
+color:var(--gold);
+margin-top:-5px;
+}
+
+.navlinks {
+display:flex;
+gap:30px;
+font-size:11px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.navlinks a:hover {
+color:#a27b3f;
+}
+
+.cartbtn,.goldbtn {
+border:0;
+background:var(--gold);
+color:#1d1710;
+padding:13px 19px;
+letter-spacing:1px;
+text-transform:uppercase;
+font-size:10px;
+font-weight:700;
+cursor:pointer;
+}
+
+.cartbtn span {
+background:#211b15;
+color:white;
+border-radius:50%;
+padding:3px 7px;
+margin-left:7px;
+}
+
+/* HERO */
+
+.hero {
+min-height:620px;
+display:grid;
+grid-template-columns:1fr 1fr;
+background:#201a14;
+color:#fff;
+overflow:hidden;
+}
+
+.hero-copy {
+padding:105px 7vw 90px;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+justify-content:center;
+}
+
+.eyebrow {
+color:var(--gold);
+font-size:10px;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.hero h1 {
+font:500 clamp(56px,7vw,100px)/.9 "Cormorant Garamond",serif;
+margin:25px 0;
+}
+
+.hero h1 em {
+color:var(--gold);
+font-weight:400;
+}
+
+.hero p {
+max-width:420px;
+color:#d0c5b5;
+line-height:1.9;
+font-size:13px;
+}
+
+.hero-actions {
+display:flex;
+gap:13px;
+margin-top:25px;
+align-items:center;
+}
+
+.outlinebtn {
+padding:13px 18px;
+border:1px solid #81745f;
+color:#fff;
+text-transform:uppercase;
+font-size:10px;
+letter-spacing:1px;
+}
+
+.hero-image {
+min-height:520px;
+background:
+linear-gradient(90deg,#201a14 0%,transparent 25%),
+url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1300&q=90')
+center/cover;
+}
+
+/* TRUST SECTION */
+
+.trust {
+display:grid;
+grid-template-columns:repeat(3,1fr);
+background:#e9e0d2;
+padding:23px 8vw;
+text-align:center;
+}
+
+.trust div {
+font:19px "Cormorant Garamond";
+border-right:1px solid #d4c8b6;
+}
+
+.trust div:last-child {
+border:0;
+}
+
+.trust small {
+display:block;
+font:9px "DM Sans";
+letter-spacing:2px;
+color:var(--muted);
+text-transform:uppercase;
+margin-top:5px;
+}
+
+/* MENU */
+
+.section {
+padding:85px 7vw;
+}
+
+.section-head {
+text-align:center;
+margin-bottom:38px;
+}
+
+.section-head h2 {
+font:500 clamp(38px,5vw,58px) "Cormorant Garamond";
+margin:12px 0;
+}
+
+.section-head p {
+color:var(--muted);
+font-size:12px;
+}
+
+.categories {
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:34px;
+}
+
+.chip {
+background:transparent;
+border:1px solid #d4c8b6;
+padding:10px 18px;
+border-radius:30px;
+font-size:10px;
+letter-spacing:1px;
+text-transform:uppercase;
+cursor:pointer;
+}
+
+.chip.active,.chip:hover {
+background:var(--ink);
+color:white;
+border-color:var(--ink);
+}
+
+.menu-grid {
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+
+.card {
+background:var(--paper);
+border:1px solid var(--line);
+transition:.25s;
+position:relative;
+}
+
+.card:hover {
+transform:translateY(-5px);
+box-shadow:0 15px 35px #3c2b1712;
+}
+
+.foodimg {
+height:220px;
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+.badge {
+position:absolute;
+top:14px;
+left:14px;
+background:var(--gold);
+padding:6px 10px;
+font-size:9px;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.cardbody {
+padding:20px;
+}
+
+.cardtop {
+display:flex;
+justify-content:space-between;
+gap:10px;
+align-items:start;
+}
+
+.card h3 {
+font:600 25px "Cormorant Garamond";
+margin:0;
+}
+
+.price {
+font-weight:700;
+font-size:14px;
+white-space:nowrap;
+}
+
+.desc {
+font-size:11px;
+line-height:1.7;
+color:var(--muted);
+min-height:38px;
+margin:9px 0 17px;
+}
+
+.cardfoot {
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-top:1px solid var(--line);
+padding-top:14px;
+}
+
+.veg {
+font-size:9px;
+color:var(--green);
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.addbtn {
+border:1px solid var(--gold);
+background:transparent;
+padding:9px 13px;
+font-size:9px;
+letter-spacing:1px;
+text-transform:uppercase;
+cursor:pointer;
+}
+
+.addbtn:hover {
+background:var(--gold);
+}
+
+/* RESTAURANT STORY */
+
+.experience {
+display:grid;
+grid-template-columns:1fr 1fr;
+background:#e9e0d2;
+}
+
+.experience-img {
+min-height:430px;
+background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85') center/cover;
+}
+
+.experience-copy {
+padding:70px 8vw;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.experience h2 {
+font:500 52px/.98 "Cormorant Garamond";
+margin:18px 0;
+}
+
+.experience p {
+color:#6e6559;
+line-height:1.9;
+font-size:12px;
+}
+
+/* FOOTER */
+
+.menu-note {
+background:var(--green);
+color:#fff;
+padding:55px 7vw;
+text-align:center;
+}
+
+.menu-note h2 {
+font:500 42px "Cormorant Garamond";
+margin:0 0 12px;
+}
+
+.menu-note p {
+color:#d8dfd7;
+font-size:12px;
+line-height:1.8;
+}
+
+.footer {
+background:#17130f;
+color:#e9dfcf;
+padding:55px 7vw 25px;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:35px;
+}
+
+.footer .brand {
+font-size:30px;
+}
+
+.footer p,.footer a {
+font-size:11px;
+color:#b9ad9c;
+line-height:2;
+}
+
+.footer h4 {
+font-size:10px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:var(--gold);
+}
+
+.copyright {
+grid-column:1/-1;
+border-top:1px solid #40382e;
+padding-top:18px;
+color:#887d70;
+font-size:9px;
+letter-spacing:1px;
+}
+
+/* CART DRAWER */
+
+.overlay {
+position:fixed;
+inset:0;
+background:#0008;
+z-index:30;
+opacity:0;
+pointer-events:none;
+transition:.25s;
+}
+
+.overlay.show {
+opacity:1;
+pointer-events:auto;
+}
+
+.drawer {
+position:fixed;
+right:-440px;
+top:0;
+height:100%;
+width:min(420px,100%);
+background:var(--paper);
+z-index:31;
+padding:25px;
+transition:.3s;
+display:flex;
+flex-direction:column;
+}
+
+.drawer.show {
+right:0;
+}
+
+.drawerhead {
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--line);
+padding-bottom:15px;
+}
+
+.drawerhead h2 {
+font:34px "Cormorant Garamond";
+margin:0;
+}
+
+.close {
+border:0;
+background:none;
+font-size:25px;
+cursor:pointer;
+}
+
+.cartitems {
+overflow:auto;
+flex:1;
+padding:12px 0;
+}
+
+.cartrow {
+display:flex;
+justify-content:space-between;
+gap:10px;
+padding:15px 0;
+border-bottom:1px solid var(--line);
+}
+
+.cartrow strong {
+font:20px "Cormorant Garamond";
+}
+
+.cartrow small {
+display:block;
+color:var(--muted);
+margin-top:5px;
+}
+
+.qty {
+display:flex;
+align-items:center;
+gap:9px;
+}
+
+.qty button {
+border:1px solid var(--line);
+background:white;
+width:25px;
+height:25px;
+cursor:pointer;
+}
+
+.total {
+border-top:1px solid var(--line);
+padding-top:18px;
+}
+
+.totalline {
+display:flex;
+justify-content:space-between;
+margin:8px 0;
+font-size:12px;
+}
+
+.totalline.grand {
+font-weight:700;
+font-size:16px;
+}
+
+.checkout {
+width:100%;
+margin-top:12px;
+padding:16px;
+background:var(--green);
+color:white;
+border:0;
+letter-spacing:1px;
+text-transform:uppercase;
+font-size:10px;
+cursor:pointer;
+}
+
+.empty {
+text-align:center;
+color:var(--muted);
+padding:60px 10px;
+font:24px "Cormorant Garamond";
+}
+
+/* TOAST AND ORDER FORM */
+
+.toast {
+position:fixed;
+bottom:22px;
+left:50%;
+transform:translate(-50%,20px);
+background:#211b15;
+color:white;
+padding:12px 20px;
+font-size:11px;
+opacity:0;
+transition:.25s;
+z-index:50;
+}
+
+.toast.show {
+opacity:1;
+transform:translate(-50%,0);
+}
+
+.modal {
+position:fixed;
+inset:0;
+background:#0009;
+z-index:40;
+display:none;
+place-items:center;
+padding:18px;
+}
+
+.modal.show {
+display:grid;
+}
+
+.modalbox {
+background:var(--paper);
+padding:30px;
+max-width:440px;
+width:100%;
+position:relative;
+}
+
+.modalbox h2 {
+font:38px "Cormorant Garamond";
+margin:0 0 8px;
+}
+
+.modalbox p {
+font-size:11px;
+color:var(--muted);
+line-height:1.7;
+}
+
+.modalbox input,.modalbox textarea {
+width:100%;
+padding:13px;
+border:1px solid var(--line);
+margin:7px 0;
+background:white;
+font:12px "DM Sans";
+}
+
+.modalbox textarea {
+min-height:65px;
+}
+
+.modalbox .goldbtn {
+width:100%;
+margin-top:8px;
+}
+
+.demo {
+font-size:9px!important;
+color:#a27b3f!important;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:850px) {
+.nav {
+padding:0 4vw;
+}
+
+.navlinks {
+gap:13px;
+}
+
+.hero {
+grid-template-columns:1fr;
+}
+
+.hero-copy {
+padding:75px 8vw;
+}
+
+.hero-image {
+min-height:360px;
+background-position:center;
+}
+
+.menu-grid {
+grid-template-columns:repeat(2,1fr);
+}
+
+.experience {
+grid-template-columns:1fr;
+}
+
+.experience-img {
+min-height:300px;
+}
+
+.footer {
+grid-template-columns:1fr 1fr;
+}
+
+.footer>div:first-child {
+grid-column:1/-1;
+}
+}
+
+@media(max-width:560px) {
+.nav {
+height:70px;
+}
+
+.brand {
+font-size:28px;
+}
+
+.navlinks {
+display:none;
+}
+
+.cartbtn {
+padding:11px 12px;
+}
+
+.hero {
+min-height:0;
+}
+
+.hero-copy {
+padding:65px 7vw;
+}
+
+.hero-image {
+min-height:280px;
+}
+
+.trust {
+padding:18px 3vw;
+}
+
+.trust div {
+font-size:16px;
+}
+
+.trust small {
+font-size:7px;
+letter-spacing:1px;
+}
+
+.section {
+padding:65px 5vw;
+}
+
+.menu-grid {
+grid-template-columns:1fr;
+gap:16px;
+}
+
+.foodimg {
+height:235px;
+}
+
+.experience-copy {
+padding:55px 8vw;
+}
+
+.footer {
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.footer>div:first-child {
+grid-column:auto;
+}
+
+.copyright {
+grid-column:auto;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topline">
+An exquisite Indian dining experience • Crafted with heritage, served with grace
+</div>
+
+<header class="nav">
+
+<a class="brand" href="#">
+TAJ THALI
+<small>THE ROYAL TABLE</small>
+</a>
+
+<nav class="navlinks">
+<a href="#home">Home</a>
+<a href="#menu">Our Menu</a>
+<a href="#story">Our Story</a>
+<a href="#contact">Visit Us</a>
+</nav>
+
+<button class="cartbtn" onclick="openCart()">
+Your Bag <span id="cartCount">0</span>
+</button>
+
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="hero-copy">
+
+<div class="eyebrow">A celebration of Indian cuisine</div>
+
+<h1>
+Tradition,<br>
+<em>beautifully</em><br>
+served.
+</h1>
+
+<p>
+Discover the royal flavours of India, thoughtfully prepared with fragrant spices, seasonal ingredients and a touch of Taj hospitality.
+</p>
+
+<div class="hero-actions">
+<a class="goldbtn" href="#menu">Explore the menu</a>
+<a class="outlinebtn" href="#story">Our philosophy</a>
+</div>
+
+</div>
+
+<div class="hero-image" role="img" aria-label="An elegant Indian thali meal"></div>
+
+</section>
+
+<div class="trust">
+
+<div>
+Freshly prepared
+<small>Made to order, every time</small>
+</div>
+
+<div>
+Royal recipes
+<small>Inspired by Indian heritage</small>
+</div>
+
+<div>
+Thoughtful service
+<small>Warmth in every detail</small>
+</div>
+
+</div>
+
+<section class="section" id="menu">
+
+<div class="section-head">
+
+<div class="eyebrow">The Taj Thali collection</div>
+
+<h2>A menu worth savouring</h2>
+
+<p>
+From timeless classics to signature favourites. Choose your delight.
+</p>
+
+</div>
+
+<div class="categories" id="filters">
+
+<button class="chip active" data-cat="All">All favourites</button>
+<button class="chip" data-cat="Thalis">Royal Thalis</button>
+<button class="chip" data-cat="Starters">Starters</button>
+<button class="chip" data-cat="Mains">Main course</button>
+<button class="chip" data-cat="Breads">Breads & rice</button>
+<button class="chip" data-cat="Drinks">Drinks</button>
+<button class="chip" data-cat="Desserts">Desserts</button>
+
+</div>
+
+<div class="menu-grid" id="menuGrid"></div>
+
+</section>
+
+<section class="experience" id="story">
+
+<div class="experience-img"></div>
+
+<div class="experience-copy">
+
+<div class="eyebrow">The art of hospitality</div>
+
+<h2>More than a meal.<br>A royal ritual.</h2>
+
+<p>
+At Taj Thali, every plate tells a story. We bring together beloved regional recipes, carefully selected ingredients and the generous spirit of Indian hospitality. Come for the flavours; stay for the feeling.
+</p>
+
+<a class="goldbtn" href="#menu" style="align-self:flex-start;margin-top:15px">
+Discover our menu
+</a>
+
+</div>
+</section>
+
+<section class="menu-note">
+
+<div class="eyebrow">A little note from our kitchen</div>
+
+<h2>Good food. Grand memories.</h2>
+
+<p>
+All prices are in Indian Rupees (INR). Please tell us about any allergies or dietary preferences when placing your order. Our team will be happy to help.
+</p>
+
+</section>
+
+</main>
+
+<footer class="footer" id="contact">
+
+<div>
+
+<div class="brand">
+TAJ THALI
+<small>THE ROYAL TABLE</small>
+</div>
+
+<p>
+An elevated Indian dining experience, where timeless recipes meet modern elegance.
+</p>
+
+</div>
+
+<div>
+<h4>Explore</h4>
+<a href="#menu">Our Menu</a><br>
+<a href="#story">Our Story</a><br>
+<a href="#contact">Contact</a>
+</div>
+
+<div>
+<h4>Find us</h4>
+<p>
+Visit our dining room<br>
+Opening hours: 12 PM – 11 PM<br>
+For reservations: Contact our team
+</p>
+</div>
+
+<div class="copyright">
+© 2026 TAJ THALI. A CONCEPT RESTAURANT WEBSITE. • MADE WITH CARE.
+</div>
+
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="drawer" id="drawer">
+
+<div class="drawerhead">
+<h2>Your selection</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div class="cartitems" id="cartItems"></div>
+
+<div class="total" id="cartTotal"></div>
+
+</aside>
+
+<div class="modal" id="orderModal">
+
+<div class="modalbox">
+
+<button class="close" onclick="closeOrder()" style="position:absolute;right:20px;top:16px">×</button>
+
+<div class="eyebrow">Complete your request</div>
+
+<h2>Place your order</h2>
+
+<p>
+Enter your details. This demo will prepare an order summary; connect a real ordering/payment service before accepting customer orders.
+</p>
+
+<form id="orderForm">
+
+<input id="custName" placeholder="Your full name" required>
+
+<input id="custPhone" placeholder="10-digit mobile number" inputmode="numeric" pattern="[0-9]{10}" required>
+
+<textarea id="custAddress" placeholder="Delivery address" required></textarea>
+
+<textarea id="custNote" placeholder="Special instructions (optional)"></textarea>
+
+<button class="goldbtn" type="submit">
+Confirm order request
+</button>
+
+</form>
+
+<p class="demo">
+Demo checkout • No payment is collected on this website.
+</p>
+
+</div>
+</div>
+
+<div class="toast" id="toast">Added to your bag</div>
+
+<script>
+
+const products = [
+
+{
+id:1,
+name:"The Maharaja Thali",
+cat:"Thalis",
+price:499,
+desc:"A royal spread of paneer, dal, seasonal sabzi, rice, breads, raita & dessert.",
+tag:"Signature",
+img:"photo-1546833999-b9f581a1996d"
+},
+
+{
+id:2,
+name:"The Vegetarian Royal Thali",
+cat:"Thalis",
+price:399,
+desc:"A generous vegetarian feast with rich gravies and traditional accompaniments.",
+tag:"Guest favourite",
+img:"photo-1512621776951-a57141f2eefd"
+},
+
+{
+id:3,
+name:"Paneer Tikka",
+cat:"Starters",
+price:279,
+desc:"Smoky tandoor-kissed paneer, marinated in fragrant spices and hung curd.",
+tag:"Popular",
+img:"photo-1567188040759-fb8a883dc6d8"
+},
+
+{
+id:4,
+name:"Dahi ke Kebab",
+cat:"Starters",
+price:249,
+desc:"Delicate crisp kebabs with a soft, tangy centre and mint chutney.",
+tag:"Chef's pick",
+img:"photo-1601050690597-df0568f70950"
+},
+
+{
+id:5,
+name:"Shahi Paneer",
+cat:"Mains",
+price:329,
+desc:"Paneer in a velvety tomato, cashew and aromatic spice gravy.",
+tag:"Royal classic",
+img:"photo-1631452180519-c014fe946bc7"
+},
+
+{
+id:6,
+name:"Dal Makhani",
+cat:"Mains",
+price:289,
+desc:"Slow-simmered black lentils finished with butter and gentle cream.",
+tag:"Slow cooked",
+img:"photo-1546833999-b9f581a1996d"
+},
+
+{
+id:7,
+name:"Butter Naan",
+cat:"Breads",
+price:69,
+desc:"Soft tandoor-baked naan brushed with a little golden butter.",
+tag:"",
+img:"photo-1601050690117-94f5f6fa8bd7"
+},
+
+{
+id:8,
+name:"Saffron Jeera Rice",
+cat:"Breads",
+price:159,
+desc:"Fluffy basmati rice with toasted cumin and a hint of saffron.",
+tag:"",
+img:"photo-1512058564366-18510be2db19"
+},
+
+{
+id:9,
+name:"Mango Lassi",
+cat:"Drinks",
+price:149,
+desc:"A cool, creamy yoghurt drink blended with ripe mango.",
+tag:"Seasonal",
+img:"photo-1525385133512-2f3ae8f8a3b0"
+},
+
+{
+id:10,
+name:"Rose Thandai",
+cat:"Drinks",
+price:139,
+desc:"A fragrant chilled drink with rose, nuts and warming spices.",
+tag:"Refreshing",
+img:"photo-1544145945-f90425340c7e"
+},
+
+{
+id:11,
+name:"Gulab Jamun",
+cat:"Desserts",
+price:129,
+desc:"Soft milk dumplings soaked in delicate cardamom-scented syrup.",
+tag:"Sweet ending",
+img:"photo-1666190092159-7c5c5a4e6f2b"
+},
+
+{
+id:12,
+name:"Kulfi Falooda",
+cat:"Desserts",
+price:189,
+desc:"Traditional creamy kulfi layered with falooda and rose syrup.",
+tag:"",
+img:"photo-1563805042-7684c019e1cb"
+}
+
+];
+
+let cart = {};
+
+const money = n => "₹" + n.toLocaleString("en-IN");
+
+function renderMenu(cat="All") {
+
+const grid = document.getElementById("menuGrid");
+
+grid.innerHTML = products
+.filter(p => cat==="All" || p.cat===cat)
+.map(p => `
+
+<article class="card">
+
+<div class="foodimg" style="background-image:url('https://images.unsplash.com/${p.img}?auto=format&fit=crop&w=800&q=85')">
+
+${p.tag ? `<span class="badge">${p.tag}</span>` : ""}
+
+</div>
+
+<div class="cardbody">
+
+<div class="cardtop">
+
+<h3>${p.name}</h3>
+
+<span class="price">${money(p.price)}</span>
+
+</div>
+
+<p class="desc">${p.desc}</p>
+
+<div class="cardfoot">
+
+<span class="veg">● Vegetarian</span>
+
+<button class="addbtn" onclick="addToCart(${p.id})">
+＋ Add to bag
+</button>
+
+</div>
+</div>
+</article>
+
+`).join("");
+
+}
+
+document.querySelectorAll(".chip").forEach(b => {
+
+b.addEventListener("click", () => {
+
+document.querySelectorAll(".chip").forEach(x => x.classList.remove("active"));
+
+b.classList.add("active");
+
+renderMenu(b.dataset.cat);
+
+});
+
+});
+
+function addToCart(id) {
+
+cart[id] = (cart[id] || 0) + 1;
+
+updateCart();
+
+showToast("Added to your bag");
+
+}
+
+function changeQty(id,d) {
+
+cart[id] = (cart[id] || 0) + d;
+
+if(cart[id] <= 0) {
+delete cart[id];
+}
+
+updateCart();
+
+}
+
+function updateCart() {
+
+let count = Object.values(cart).reduce((a,b) => a+b,0);
+
+document.getElementById("cartCount").textContent = count;
+
+const items = document.getElementById("cartItems");
+
+const entries = Object.entries(cart);
+
+if(!entries.length) {
+
+items.innerHTML = `
+<div class="empty">
+Your bag is waiting
+<br>
+<small style="font:11px DM Sans">
+Add something delicious from our menu.
+</small>
+</div>
+`;
+
+document.getElementById("cartTotal").innerHTML = "";
+
+return;
+
+}
+
+let subtotal = 0;
+
+items.innerHTML = entries.map(([id,q]) => {
+
+let p = products.find(x => x.id == id);
+
+subtotal += p.price*q;
+
+return `
+
+<div class="cartrow">
+
+<div>
+<strong>${p.name}</strong>
+<small>${money(p.price)} each</small>
+</div>
+
+<div class="qty">
+
+<button onclick="changeQty(${id},-1)">−</button>
+
+${q}
+
+<button onclick="changeQty(${id},1)">＋</button>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+let tax = Math.round(subtotal * 0.05);
+
+document.getElementById("cartTotal").innerHTML = `
+
+<div class="totalline">
+<span>Subtotal</span>
+<b>${money(subtotal)}</b>
+</div>
+
+<div class="totalline">
+<span>Estimated taxes (5%)</span>
+<b>${money(tax)}</b>
+</div>
+
+<div class="totalline">
+<span>Delivery</span>
+<span>Calculated on confirmation</span>
+</div>
+
+<div class="totalline grand">
+<span>Estimated total</span>
+<b>${money(subtotal+tax)}</b>
+</div>
+
+<button class="checkout" onclick="openOrder()">
+Continue to order
+</button>
+
+`;
+
+}
+
+function openCart() {
+
+document.getElementById("overlay").classList.add("show");
+
+document.getElementById("drawer").classList.add("show");
+
+}
+
+function closeCart() {
+
+document.getElementById("overlay").classList.remove("show");
+
+document.getElementById("drawer").classList.remove("show");
+
+}
+
+function openOrder() {
+
+if(!Object.keys(cart).length) return;
+
+closeCart();
+
+document.getElementById("orderModal").classList.add("show");
+
+}
+
+function closeOrder() {
+
+document.getElementById("orderModal").classList.remove("show");
+
+}
+
+function showToast(t) {
+
+let e = document.getElementById("toast");
+
+e.textContent = t;
+
+e.classList.add("show");
+
+setTimeout(() => e.classList.remove("show"),1800);
+
+}
+
+document.getElementById("orderForm").addEventListener("submit",e => {
+
+e.preventDefault();
+
+let lines = Object.entries(cart).map(([id,q]) => {
+
+let p = products.find(x => x.id == id);
+
+return `${p.name} x ${q} = ${money(p.price*q)}`;
+
+}).join("\n");
+
+let total = Object.entries(cart).reduce((s,[id,q]) => {
+
+return s + products.find(p => p.id == id).price*q;
+
+},0);
+
+let msg = `TAJ THALI — ORDER REQUEST
+
+Name: ${document.getElementById("custName").value}
+
+Phone: ${document.getElementById("custPhone").value}
+
+Address: ${document.getElementById("custAddress").value}
+
+Items:
+${lines}
+
+Estimated total incl. 5% tax: ${money(total+Math.round(total*.05))}
+
+Notes: ${document.getElementById("custNote").value}
+
+Demo request only — no payment collected.`;
+
+alert("Your order request has been prepared.\n\n" + msg);
+
+cart = {};
+
+updateCart();
+
+closeOrder();
+
+e.target.reset();
+
+showToast("Thank you for choosing Taj Thali");
+
+});
+
+renderMenu();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
